@@ -1,17 +1,11 @@
-function NavBar({
-  pokemonIndex,
-  pokemonCount,
-  handleClickPrevious,
-  handleClickNext,
-}) {
+function NavBar({ pokemonList, handleClick }) {
   return (
     <>
-      {pokemonIndex > 0 && (
-        <button onClick={handleClickPrevious}>Précédent</button>
-      )}
-      {pokemonIndex < pokemonCount - 1 && (
-        <button onClick={handleClickNext}>Suivant</button>
-      )}
+      {pokemonList.map((pokemon, index) => (
+        <button key={pokemon.name} onClick={() => handleClick(index)}>
+          {pokemon.name}
+        </button>
+      ))}
     </>
   );
 }
